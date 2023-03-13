@@ -11,33 +11,26 @@ class Solution:
         # Detailed answer, using only numbers
 
         rebmun = 0
+        s = 1 if number>=0 else -1 #sign
+        number = abs(number)
 
-        if number > 2**31 + 1 or number < -2**31:
-            pass
-        
-        else:           
-            number = abs(number)
-            last = 0
+        while number > 0:
+            # Compute the last digit of the number
+            last = number - int(number/10)*10
+            # Multiply by 10 and add the last digit in the answer
+            rebmun = rebmun*10 + last 
+            # remove the last digit in the original number
+            number = int(number/10)
 
-            while number > 0:
-                # Compute the last digit of the number
-                last = number - int(number/10)*10
-                
-                # Multiply by 10 and add the last digit in the answer
-                rebmun = rebmun*10 + last 
-                
-                # remove the last digit in the original number
-                number = int(number/10)
-          
-        return rebmun * (1 if number >= 0 else -1)
-    
+        return s*rebmun if -2**31 <= rebmun < 2**31 else 0
+
     
     
     def reverse_py(self, number: int) -> int:
         # Pythonic solution, cast the number to string, reverse string
-        # cast against to integer, multiply by the sign
-        rebnum = int(str(abs(number))[::-1]) * (1 if number >= 0 else -1)
-        return rebnum if -2**31 <= rebnum < 2**31 else 0
+        # cast again to integer, multiply by the sign
+        rebmun = int(str(abs(number))[::-1]) * (1 if number >= 0 else -1)
+        return rebmun if -2**31 <= rebmun < 2**31 else 0
 
 
 
