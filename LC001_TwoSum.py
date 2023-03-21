@@ -14,8 +14,8 @@ class Solution:
         """
         Create a hash table with no elements
         Traverse the elements of the array
-        Check if the element resulting from difference of target and actual element exists in the hastable
-            If true, return the actual index element and the index of the difference from the hastable
+        Check if the element resulting from difference of target and actual element exists in the hashtable
+            If true, return the actual index element and the index of the difference from the hashtable
         Insert the actual element into the hashtable with its associated index
         """
         dic = {}
