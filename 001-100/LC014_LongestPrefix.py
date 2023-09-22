@@ -22,10 +22,10 @@ Explanation: There is no common prefix among the input strings.
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
         """
-        #1.- Sort the array (alphabetically) 
-        #2.- Compare first and last elements, char by char
-        #    If they match, add to the prefix output
-        #3.- Determine the longest prefix
+        1.- Sort the array (alphabetically) 
+        2.- Compare first and last elements, char by char
+            If they match, add to the prefix output
+        3.- Determine the longest prefix
 
 
         """
