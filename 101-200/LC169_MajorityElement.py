@@ -25,3 +25,18 @@ class Solution:
 
             if counter_dict[num] > n // 2:
                 return num
+
+
+    def majorityElementBMA(self, nums: List[int]) -> int:
+        """
+        Using the Boyer - Moore Voting Algorithm
+        """
+        count = 0
+        candidate = None
+
+        for num in nums:
+            if count == 0:
+                candidate = num
+            count += (1 if num == candidate else -1)
+            
+        return candidate
