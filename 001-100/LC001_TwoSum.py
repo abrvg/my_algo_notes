@@ -18,22 +18,14 @@ class Solution:
             If true, return the actual index element and the index of the difference from the hashtable
         Insert the actual element into the hashtable with its associated index
         """
-        dic = {}
+        
+        hash_table = {}
+        
+        for i, num in enumerate(nums):
+            complement = target - num
 
-        for i in range(len(arr)):
-            var = arr[i]
+            if complement in hash_table:
+                return [hash_table[complement], i]
+            hash_table[num] = i
 
-            if target - var in dic:
-                return [dic[target-var], i]
-            
-            dic[var] = i
-
-
-if __name__ == "__main__":
-    
-    arr = [3, 7, 18, 1, 8, 95, 4]
-    target = 19
-
-    s = Solution().twoSum(arr, target)
-
-    print(s)
+        return []
