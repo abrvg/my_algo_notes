@@ -26,7 +26,17 @@ class Solution:
     
     def isPalindrome(self,x):
         self.x = x
-        return print(str(self.x) == str(self.x)[::-1])
+        return str(self.x) == str(self.x)[::-1]
+
+
+    def isPalindromeII(self, x: int) -> bool:
+        stringx = str(x)
+
+        for i in range(len(stringx)//2):
+            if stringx[i] != stringx[-1-i]:
+                return False
+
+        return True
 
 x = 10
 s = Solution().isPalindrome(x)
