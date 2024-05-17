@@ -19,28 +19,18 @@ Output: [["a"]]
 
 """
 
-def groupAnagrams(strs):
+def groupAnagrams(strs: List[str]):
 
     # create a hash table to store anagram group
     # hash table will be a key for sorted string and the value is the list of string that belongs to this group
-    angrm_groups = {}
+    anagrams = {}
 
-    # Iterate over the array, sort the string as a key and look
-    #for the corresponding anagram group in hastable
+    # Iterate over the array, sort the string as a key 
     for string in strs:
-        sorted_str = ''.join(sorted(string))
-
-    #If anagram doesn't exist, create a new anagram group
-    # Otherwise , add the string to the extisting group
-        if sorted_str not in angrm_groups:
-            angrm_groups[sorted_str] = []
-        
-        angrm_groups[sorted_str].append(string)
+        #If anagram doesn't exist, create a new anagram group
+        # Otherwise , add the string to the extisting group
+        sorted_string = '.join(sorted(string))
+        anagrams.setdefault(sorted_string,[]).append(string)
 
     # Return the values of the hash table
-    return list(angrm_groups.values())
-
-
-print(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
-print(groupAnagrams([""]))
-print(groupAnagrams(["a"]))
+    return list(anagrams.values())
